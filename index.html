@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>Download and start console app from <a href="./Server.zip">Download</a></li>
+        <li>Refresh page and open console from browser dev tools to see results</li>
+    </ul>
+    <img src="./screen.png" width="800px" alt="screen"/>
+    <script>
+        var ws = new WebSocket("ws://127.0.0.1:8081/test")
+
+        ws.onmessage = function (e) {
+            console.log("Message:", e.data);
+        };
+
+        ws.onopen = function () {
+            ws.send("Message 1");
+            ws.send("Message 2");
+            ws.send("Message 3");
+            ws.send("Message 4");
+            ws.send("Message 5");
+            ws.send("Message 6");
+        }
+    </script>
+</body>
+
+</html>
